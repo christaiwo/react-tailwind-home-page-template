@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Link, animateScroll as scroll } from 'react-scroll'
+import { Link as LinkDom } from 'react-router-dom'
+
 import {Bars3Icon,XMarkIcon} from '@heroicons/react/20/solid';
 
 const Navbar = () => {
@@ -8,7 +10,7 @@ const Navbar = () => {
     const handleClose = () => setNav(!nav);
     
   return (
-    <div className="w-full h-[80px] fixed z-10 bg-zinc-200  drop-shadow-lg">
+    <div className="w-full h-[80px] sticky z-10 bg-zinc-200  drop-shadow-lg">
         <div className="px-2 flex justify-between items-center w-full h-full">
             {/* navbar */}
             <div className="flex items-center">
@@ -22,8 +24,8 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="hidden md:flex pr-4">
-                <button className="border-none bg-transparent text-black mr-4">Sign In</button>
-                <button className="px-8 py-3">Sign Up</button>
+                <LinkDom to='/login' className="border-none bg-transparent px-8 py-3 text-black mr-4  border bg-indigo-600 border-indigo-600 hover:bg-transparent hover:text-indigo-600 rounded-md ">Sign In</LinkDom>
+                <LinkDom to='/register'  className="px-8 py-3 text-white  border bg-indigo-600 border-indigo-600 hover:bg-transparent hover:text-indigo-600 rounded-md">Sign Up</LinkDom>
             </div>
             <div className="md:hidden mr-4" onClick={handleClick}>
                 {!nav ? <Bars3Icon className="w-5" /> : <XMarkIcon className="w-5" /> }
